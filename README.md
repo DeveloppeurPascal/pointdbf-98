@@ -16,9 +16,24 @@ Codes sources du programme "Ellipse screen saver" en Delphi 1 datant du mois d'a
 
 ## Programme de l'économiseur d'écran final dans le dossier /bin
 
+### Version 16 bits d'origine
+
 Si vous avez une version de Windows 3.x, Windows 95, Windows 98, Windows Me ou Windows XP vous devriez pouvoir exécuter le programme 16 bits SCRSAVER.EXE du dossier /bin
 
 Si vous n'avez pas ces versions de Windows c'est cuit puisque les programmes 16 bits n'étaient plus pris en charge par Windows, mais vous pouvez toujours compiler le projet avec [Delphi](https://developpeur-pascal.fr/delphi.html) pour votre système d'exploitation actuel.
+
+### Version 32 bits
+
+Pour le fun une version 32 bits du projet a été compilée dans Delphi 11.2 Alexandria. C'est le fichier srcsaver-win32-20220811.exe qui est opérationnel sur les versions récentes de Windows.
+
+Il a suffit :
+* d'ouvrir le projet dans Delphi 11.2 Alexandria,
+* de corriger les deux anomalies signalées ("word" à remplacer par "integer" sur deux variables utilisées en blockread() et blockwrite(), puis retirer la directive de compilation $D qui n'est plus accessible tel qu'elle).
+* compiler le projet
+
+Bien entendu les fonctionnalités d'origine ne sont pas fonctionnelles comme à l'époque :
+* les ellipses sont dessinées avec un fond noir au lieu d'être transparentes. Il faudrait changer les caractéristiques par défaut de la fiche pour la rendre transparente (l'API Windows est en cause).
+* le programme ne peut pas s'installer car il faisait une copie de lui-même dans c:\Windows ce que les versions récentes de l'OS interdisent sans basculer en administrateur pour des raisons de sécurité. Il faudrait juste jouer avec l'IAC. Faire l'opération à la main est faisable (changer l'extension .exe en .scr, copier le fichier dans c:\Windows le rend visible dans les paramétres de l'écran de veille à la rubrique "choix des économiseurs d'écran" de Windows 10).
 
 ## Captures d'écran dans le dossier /screen-captures
 
@@ -37,6 +52,12 @@ Panneau de configuration de Windows 3 qui donnait accès aux paramètres du syst
 ![capture écran au paramétrage de l'affichage et écran de veille](https://github.com/DeveloppeurPascal/pointdbf-98/raw/main/screen-captures/bureau.jpg)
 
 Fenêtre de dialogue de configuration du bureau permettant de choisir et activer un écran de veille.
+
+### Windows 10 et son paramétrage
+
+![capture écran du paramétrage de l'écran de veille sous Windows 10](https://github.com/DeveloppeurPascal/pointdbf-98/raw/main/screen-captures/EcranDeVeilleWindows10.png)
+
+Avec le programme compilé en Win32, copié dans C:\Windows puis renommé à la main, on peut activer cet écran de veille aussi sous Windows 10.
 
 ### Les écrans de "Ellips Screen Saver"
 
