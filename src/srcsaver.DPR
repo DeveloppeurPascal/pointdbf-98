@@ -30,7 +30,7 @@ uses
   Cpy_file in 'CPY_FILE.PAS';
 
 {$R *.RES}
-{$D SCRNSAVE Ellipse Screen Saver (OlfSoftware) }
+{ $D SCRNSAVE Ellipse Screen Saver (OlfSoftware) }
 { Donne son nom à l'économiseur d'écran. }
 
 begin
