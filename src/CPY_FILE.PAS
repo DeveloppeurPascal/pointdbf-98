@@ -15,7 +15,7 @@ function Copier_Fichier (s1, s2 : string): longint;
 implementation
 var
    f1, f2 : file;
-   lu , ecrit : word;
+   lu , ecrit : integer;
    copie_en_cours : boolean;
    buffer : array [0..32767] of char;
 
